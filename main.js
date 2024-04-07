@@ -13,8 +13,8 @@ let heightsInInches = [66, 64, 60, 52, 72, 80, 51]
 //   4.25
 // ]
 
-
-
+let heightsInFeet = heightsInInches.map(height => height/12);
+console.log(heightsInFeet);
 
 
 
@@ -99,6 +99,25 @@ let shopItems = [
 ];
 
 
+// loop through each shop item in the object (for ...in loop to get obj vals)
+// log in new format
+
+// To access values: .dot notation or bracket ['...']
+// myObj.a
+// myObj[‘a’]
+console.log('-------------')
+console.log('Exercise 2')
+
+for(let obj in shopItems){
+    console.log(
+        `=================================
+        Name : ${shopItems[obj].name}
+        Price: ${shopItems[obj].price}
+        About: ${shopItems[obj].desc}
+        Category: ${shopItems[obj].category}
+        `
+    )
+};
 
 
 
@@ -107,20 +126,39 @@ let shopItems = [
 // Exercise #3
 // String Reversal Function:
 // Write a function called reverseString that takes a string (str) as an argument and returns the reverse of that string.
-
+console.log('-------------')
+console.log('Exercise 3')
 let testString1 = "Hello World" // "dlroW olleH"
 let testString2 = "test test 123" // "321 tset tset"
 
-
-
-
-
-
+function reverseString(str){
+    let new_list = '';
+    for (let charidx = str.length -1; charidx >= 0; charidx--) {
+        new_list += str[charidx]
+    }
+    return console.log(new_list)
+}
+reverseString(testString1)
 
 // Exercise #4
 // Duplicate Element Remover Function:
 // Write a function called removeDuplicates that takes an array (arr) as an argument and returns a new array with duplicate elements removed
+console.log('-------------')
+console.log('Exercise 4')
 
 let testArr1 = ['Chicago', 'New York', 'Miami', 'New York','Chicago', 'Miami', 'Chicago', 'New York', 'Chicago'] // ['Chicago', 'New York', 'Miami']
-
 let testArr2 = [1, 1, 1, 2, 2, 3, 3, 4, 4, 4, 3, 3, 2, 2, 2, 1, 1, 1, 2, 3, 4] // [1, 2, 3, 4]
+
+// loop through list
+// if not seen, add to new list
+// if seen, skip - NOT IN doesn't exist in javascript
+
+function removeDuplicates(arr){
+    let new_arr = [];
+    for (let element of arr){
+        if (!new_arr.includes(element)){
+            new_arr.push(element)
+        }
+    } return console.log(new_arr)
+};
+removeDuplicates(testArr2);
